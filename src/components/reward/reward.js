@@ -16,22 +16,22 @@ const RewardComponent = () => {
         const token = queryParams.get("token");
 
         setLoading(true);
-        // try {
-        //     const reqBody = { token, contestId };
-        //     console.log("reqBody -> -> ", reqBody);
-        //     const response = await enrollService(reqBody);
-        //     console.log(response);
-        setReward({
-            imageUrl: "https://static.vecteezy.com/system/resources/thumbnails/046/829/689/small_2x/smart-watch-isolated-on-transparent-background-png.png",
-            title: "boAt Wave Magma",
-            worth: "5000",
-            description: 'Smartwatch with 1.96" HD Display, 100+ Sports Modes, IP68 Dust & Water Resistance'
-        })
-        // } catch (error) {
-        //     console.error("Enrollment failed:", error);
-        // } finally {
-        setLoading(false);
-        // }
+        try {
+            const reqBody = { token, contestId };
+            console.log("reqBody -> -> ", reqBody);
+            // const response = await enrollService(reqBody);
+            // console.log(response);
+            setReward({
+                imageUrl: "https://static.vecteezy.com/system/resources/thumbnails/046/829/689/small_2x/smart-watch-isolated-on-transparent-background-png.png",
+                title: "boAt Wave Magma",
+                worth: "5000",
+                description: 'Smartwatch with 1.96" HD Display, 100+ Sports Modes, IP68 Dust & Water Resistance'
+            })
+        } catch (error) {
+            console.error("Enrollment failed:", error);
+        } finally {
+            setLoading(false);
+        }
     };
 
     useEffect(() => {
