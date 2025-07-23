@@ -6,7 +6,7 @@ const Loader = () => {
     return (
         <div className="backdrop">
             <div className="container">
-                <Spinner color="primary" />
+                <Spinner color="primary" className="bigSpinner" />
                 <p>Loading...</p>
             </div>
         </div>

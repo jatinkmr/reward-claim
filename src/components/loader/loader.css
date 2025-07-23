@@ -8,21 +8,22 @@
     justify-content: center;
     align-items: center;
     height: 100vh;
-    /* background-color: #0d1117; */
 }
 
 .backdrop {
     position: fixed;
-    /* cover entire screen */
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
     background-color: rgba(255, 255, 255, 0.8);
-    /* optional dim effect */
     z-index: 9999;
-    /* stay on top */
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.bigSpinner {
+    width: 10rem !important;
+    height: 10rem !important;
 }

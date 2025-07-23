@@ -59,8 +59,8 @@ code {
 }
 
 .congrats-text {
-  font-size: 28px;
-  font-weight: bold;
+  font-size: 30px;
+  font-weight: 900;
   color: #FFD580;
   margin-bottom: 20px;
 }
@@ -99,7 +99,7 @@ code {
 
 .divider {
   border: none;
-  border-top: 1px solid #555;
+  border-top: 1px solid #ffffff;
   margin: 12px 0;
 }
 
@@ -165,4 +165,12 @@ code {
 .tab-btn.active {
   background-color: #FFD580;
   color: #000;
+}
+
+.div404 {
+  border: 2px inset #dee2e6;
+  padding: 60px;
+  border-radius: 20px;
+  background-color: #eee5ffb0;
+  box-shadow: 0 0 20px 1px rgba(135, 22, 173, 0.5)
 }

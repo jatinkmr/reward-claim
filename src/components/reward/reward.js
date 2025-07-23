@@ -15,22 +15,22 @@ const RewardComponent = () => {
         const queryParams = new URLSearchParams(location.search);
         const token = queryParams.get("token");
 
-        // setLoading(true);
+        setLoading(true);
         // try {
-            const reqBody = { token, contestId };
-            console.log("reqBody -> -> ", reqBody);
-            // const response = await enrollService(reqBody);
-            // console.log(response);
-            setReward({
-                imageUrl: "https://static.vecteezy.com/system/resources/thumbnails/046/829/689/small_2x/smart-watch-isolated-on-transparent-background-png.png",
-                title: "boAt Wave Magma",
-                worth: "5000",
-                description: 'Smartwatch with 1.96" HD Display, 100+ Sports Modes, IP68 Dust & Water Resistance'
-            })
+        //     const reqBody = { token, contestId };
+        //     console.log("reqBody -> -> ", reqBody);
+        //     const response = await enrollService(reqBody);
+        //     console.log(response);
+        setReward({
+            imageUrl: "https://static.vecteezy.com/system/resources/thumbnails/046/829/689/small_2x/smart-watch-isolated-on-transparent-background-png.png",
+            title: "boAt Wave Magma",
+            worth: "5000",
+            description: 'Smartwatch with 1.96" HD Display, 100+ Sports Modes, IP68 Dust & Water Resistance'
+        })
         // } catch (error) {
         //     console.error("Enrollment failed:", error);
         // } finally {
-        //     setLoading(false);
+        setLoading(false);
         // }
     };
 
@@ -55,7 +55,7 @@ const RewardComponent = () => {
                         style={{ maxWidth: "300px", marginTop: "20px" }}
                     />
                 </div>
-                <p className="won-text pt-4">You’ve won a</p>
+                <p className="won-text pt-4">You've won a</p>
                 <div className="prize-card">
                     <h3 className="prize-title">{reward.title}</h3>
                     <p className="worth-text">worth ₹{reward.worth}</p>
@@ -65,14 +65,12 @@ const RewardComponent = () => {
 
                 <div className="tab-buttons">
                     <button
-                        className={`tab-btn ${activeTab === "avail" ? "active" : ""}`}
-                        onClick={() => setActiveTab("avail")}
+                        className={`tab-btn ${activeTab === "avail" ? "active" : ""}`} onClick={() => setActiveTab("avail")}
                     >
                         How to avail
                     </button>
                     <button
-                        className={`tab-btn ${activeTab === "terms" ? "active" : ""}`}
-                        onClick={() => setActiveTab("terms")}
+                        className={`tab-btn ${activeTab === "terms" ? "active" : ""}`} onClick={() => setActiveTab("terms")}
                     >
                         Terms & Conditions
                     </button>
