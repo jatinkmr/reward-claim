@@ -7,7 +7,7 @@ import { Container } from "reactstrap";
 const RewardComponent = () => {
     const { contestId } = useParams();
     const location = useLocation();
-    const [activeTab, setActiveTab] = useState("how-to-avail");
+    const [activeTab, setActiveTab] = useState("avail");
     const [loading, setLoading] = useState(false);
     const [reward, setReward] = useState({});
 
@@ -17,13 +17,10 @@ const RewardComponent = () => {
 
         // setLoading(true);
         // try {
-        //     const reqBody = {
-        //         token,
-        //         contest: contestId,
-        //     };
-        //     console.log("reqBody -> -> ", reqBody);
-        //     const response = await enrollService(reqBody);
-        //     console.log(response);
+            const reqBody = { token, contestId };
+            console.log("reqBody -> -> ", reqBody);
+            // const response = await enrollService(reqBody);
+            // console.log(response);
             setReward({
                 imageUrl: "https://static.vecteezy.com/system/resources/thumbnails/046/829/689/small_2x/smart-watch-isolated-on-transparent-background-png.png",
                 title: "boAt Wave Magma",
@@ -68,8 +65,8 @@ const RewardComponent = () => {
 
                 <div className="tab-buttons">
                     <button
-                        className={`tab-btn ${activeTab === "how-to-avail" ? "active" : ""}`}
-                        onClick={() => setActiveTab("how-to-avail")}
+                        className={`tab-btn ${activeTab === "avail" ? "active" : ""}`}
+                        onClick={() => setActiveTab("avail")}
                     >
                         How to avail
                     </button>
@@ -81,7 +78,7 @@ const RewardComponent = () => {
                     </button>
                 </div>
 
-                {activeTab === "how-to-avail" && (
+                {activeTab === "avail" && (
                     <div className="instructions">
                         <ol>
                             <li>Open the Prestige Gravity app on your mobile device.</li>
