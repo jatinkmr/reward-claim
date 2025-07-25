@@ -52,10 +52,10 @@ const RewardComponent = () => {
                         src={reward.imageUrl}
                         alt="Smartwatch"
                         className="reward-image"
-                        style={{ maxWidth: "300px", marginTop: "20px" }}
                     />
                 </div>
-                <p className="won-text pt-4">You've won a</p>
+
+                <p className="won-text">You've won a</p>
                 <div className="prize-card">
                     <h3 className="prize-title">{reward.title}</h3>
                     <p className="worth-text">worth ₹{reward.worth}</p>
