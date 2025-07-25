@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { NotFoundComponent, RewardComponent } from './components';
+import { ErrorComponent, NotFoundComponent, RewardComponent } from './components';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 class App extends Component {
@@ -10,6 +10,7 @@ class App extends Component {
         <Routes>
           <Route path='/contest/:contestId' element={<RewardComponent />} />
           <Route path='*' element={<NotFoundComponent />} />
+          <Route path="/error" element={<ErrorComponent />} />
         </Routes>
       </BrowserRouter>
     );

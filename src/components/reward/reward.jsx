@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import Loader from "../loader/loader";
-import { enrollService } from "../../services/reward";
-import { useLocation, useParams } from "react-router-dom";
+import { allocatingGiftService } from "../../services/reward";
+import { useLocation, useParams, useNavigate } from "react-router-dom";
 import { Container } from "reactstrap";
+import { baseUrl } from "../../services";
 
 const RewardComponent = () => {
     const { contestId } = useParams();
@@ -10,6 +11,7 @@ const RewardComponent = () => {
     const [activeTab, setActiveTab] = useState("avail");
     const [loading, setLoading] = useState(false);
     const [reward, setReward] = useState({});
+    const navigate = useNavigate();
 
     const enrollingUser = async () => {
         const queryParams = new URLSearchParams(location.search);
@@ -19,16 +21,29 @@ const RewardComponent = () => {
         try {
             const reqBody = { token, contestId };
             console.log("reqBody -> -> ", reqBody);
-            // const response = await enrollService(reqBody);
-            // console.log(response);
-            setReward({
-                imageUrl: "https://static.vecteezy.com/system/resources/thumbnails/046/829/689/small_2x/smart-watch-isolated-on-transparent-background-png.png",
-                title: "boAt Wave Magma",
-                worth: "5000",
-                description: 'Smartwatch with 1.96" HD Display, 100+ Sports Modes, IP68 Dust & Water Resistance'
-            })
+            const response = await allocatingGiftService(reqBody);
+            console.log(response);
+            if (response?.data?.status == "ok") {
+                setReward({
+                    title: response?.data?.data?.name || 'N/A',
+                    worth: response?.data?.data?.worth || 'N/A',
+                    imageUrl: response?.data?.data?.image?.url || '',
+                    description: response?.data?.data?.description || 'N/A'
+                });
+                console.log('reward -> ', reward)
+            }
         } catch (error) {
             console.error("Enrollment failed:", error);
+            console.log('error.response -> ', error?.response?.data?.error?.message)
+            navigate("/error", {
+                state: {
+                    error: {
+                        status: error?.response?.status || 500,
+                        message: error?.response?.data?.error?.message || "Unexpected error",
+                        details: "Please try again later or contact support."
+                    }
+                }
+            });
         } finally {
             setLoading(false);
         }
@@ -49,18 +64,18 @@ const RewardComponent = () => {
                 <div className="reward-section">
                     <h1 className="congrats-text">Congratulations!</h1>
                     <img
-                        src={reward.imageUrl}
-                        alt="Smartwatch"
+                        src={`${baseUrl}${reward.imageUrl}`}
+                        alt="reward-image"
                         className="reward-image"
                     />
                 </div>
 
                 <p className="won-text">You've won a</p>
                 <div className="prize-card">
-                    <h3 className="prize-title">{reward.title}</h3>
-                    <p className="worth-text">worth ₹{reward.worth}</p>
+                    <h3 className="prize-title">{reward.title || 'N/A'}</h3>
+                    <p className="worth-text">worth ₹{reward.worth || 'N/A'}</p>
                     <hr className="divider" />
-                    <p className="description-text">{reward.description}</p>
+                    <p className="description-text">{reward.description || 'N/A'}</p>
                 </div>
 
                 <div className="tab-buttons">
