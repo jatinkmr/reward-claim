@@ -20,34 +20,34 @@ const ErrorPage = () => {
         }
     }, [location.state]);
 
-    // Different error scenarios for demonstration
-    const errorScenarios = [
-        {
-            status: 404,
-            message: "The requested resource could not be found on this server.",
-            details: "Please check the URL and try again, or contact support if the problem persists."
-        },
-        {
-            status: 500,
-            message: "Internal server error occurred while processing your request.",
-            details: "Our team has been notified and is working to resolve this issue. Please try again later."
-        },
-        {
-            status: 403,
-            message: "Access denied. You don't have permission to access this resource.",
-            details: "Please log in with appropriate credentials or contact your administrator."
-        },
-        {
-            status: 429,
-            message: "Too many requests. Rate limit exceeded.",
-            details: "Please wait a moment before making another request."
-        },
-        {
-            status: 401,
-            message: "Authentication required to access this resource.",
-            details: "Please log in to continue or check your authentication credentials."
-        }
-    ];
+    // // Different error scenarios for demonstration
+    // const errorScenarios = [
+    //     {
+    //         status: 404,
+    //         message: "The requested resource could not be found on this server.",
+    //         details: "Please check the URL and try again, or contact support if the problem persists."
+    //     },
+    //     {
+    //         status: 500,
+    //         message: "Internal server error occurred while processing your request.",
+    //         details: "Our team has been notified and is working to resolve this issue. Please try again later."
+    //     },
+    //     {
+    //         status: 403,
+    //         message: "Access denied. You don't have permission to access this resource.",
+    //         details: "Please log in with appropriate credentials or contact your administrator."
+    //     },
+    //     {
+    //         status: 429,
+    //         message: "Too many requests. Rate limit exceeded.",
+    //         details: "Please wait a moment before making another request."
+    //     },
+    //     {
+    //         status: 401,
+    //         message: "Authentication required to access this resource.",
+    //         details: "Please log in to continue or check your authentication credentials."
+    //     }
+    // ];
 
     const getErrorColor = (status) => {
         if (status >= 500) return 'danger';
