@@ -25,7 +25,7 @@ const RewardComponent = () => {
             console.log(response);
             if (response?.data?.status == "ok") {
                 setReward({
-                    title: response?.data?.data?.name || 'N/A',
+                    title: response?.data?.data?.title || 'N/A',
                     worth: response?.data?.data?.worth || 'N/A',
                     imageUrl: response?.data?.data?.image?.url || '',
                     description: response?.data?.data?.description || 'N/A'
@@ -34,12 +34,12 @@ const RewardComponent = () => {
             }
         } catch (error) {
             console.error("Enrollment failed:", error);
-            console.log('error.response -> ', error?.response?.data?.error?.message)
+            console.log('error.response -> ', error?.response?.data?.error)
             navigate("/error", {
                 state: {
                     error: {
-                        status: error?.response?.status || 500,
-                        message: error?.response?.data?.error?.message || "Unexpected error",
+                        status: error?.response?.status ? error?.response?.status : (error?.response?.data?.error?.status || 500),
+                        message: error?.response?.data?.error ? (error?.response?.data?.error || error?.response?.data?.error?.message) : "Unexpected error",
                         details: "Please try again later or contact support."
                     }
                 }
