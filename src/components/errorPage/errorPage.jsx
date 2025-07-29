@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
-import { Container, Row, Col, Alert, Card, CardBody, CardTitle, Button, Badge } from 'reactstrap';
+import { Container, Row, Col, Alert, Card, CardBody, CardTitle,
+    // Button, Badge 
+} from 'reactstrap';
 
 const ErrorPage = () => {
     const location = useLocation();
