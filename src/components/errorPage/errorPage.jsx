@@ -17,7 +17,6 @@ const ErrorPage = () => {
 
     useEffect(() => {
         if (location.state?.error) {
-            console.log('location.state.error -> -> ', location.state.error)
             setCurrentError(location.state.error);
         }
     }, [location.state]);

@@ -20,9 +20,7 @@ const RewardComponent = () => {
         setLoading(true);
         try {
             const reqBody = { token, contestId };
-            console.log("reqBody -> -> ", reqBody);
             const response = await allocatingGiftService(reqBody);
-            console.log(response);
             if (response?.data?.status == "ok") {
                 setReward({
                     title: response?.data?.data?.title || 'N/A',
@@ -30,7 +28,6 @@ const RewardComponent = () => {
                     imageUrl: response?.data?.data?.image?.url || '',
                     description: response?.data?.data?.description || 'N/A'
                 });
-                console.log('reward -> ', reward)
             }
         } catch (error) {
             console.error("Enrollment failed:", error);
