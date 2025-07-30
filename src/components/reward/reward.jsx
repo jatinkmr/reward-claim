@@ -21,7 +21,7 @@ const RewardComponent = () => {
         try {
             const reqBody = { token, contestId };
             const response = await allocatingGiftService(reqBody);
-            if (response?.data?.status == "ok") {
+            if (response?.data?.status === "ok") {
                 setReward({
                     title: response?.data?.data?.title || 'N/A',
                     worth: response?.data?.data?.worth || 'N/A',
