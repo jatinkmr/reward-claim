@@ -1,6 +1,5 @@
-// const axios = require('axios');
 import axios from 'axios';
-const { contestEnrollmentUrl, allocatingGiftUrl } = require('./index');
+import { allocatingGiftUrl, contestEnrollmentUrl } from '.';
 
 const enrollService = async reqBody => {
     return await axios.post(contestEnrollmentUrl, reqBody)

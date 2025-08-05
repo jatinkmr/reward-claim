@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import Loader from "../loader/loader";
 import { allocatingGiftService } from "../../services/reward";
 import { useLocation, useParams, useNavigate } from "react-router-dom";
@@ -13,7 +13,7 @@ const RewardComponent = () => {
     const [reward, setReward] = useState({});
     const navigate = useNavigate();
 
-    const enrollingUser = async () => {
+    const enrollingUser = useCallback(async () => {
         const queryParams = new URLSearchParams(location.search);
         const token = queryParams.get("token");
 
@@ -21,12 +21,12 @@ const RewardComponent = () => {
         try {
             const reqBody = { token, contestId };
             const response = await allocatingGiftService(reqBody);
-            if (response?.data?.status === "ok") {
+            if (response?.data?.status.toLowerCase() === "ok") {
                 setReward({
-                    title: response?.data?.data?.title || 'N/A',
-                    worth: response?.data?.data?.worth || 'N/A',
-                    imageUrl: response?.data?.data?.image?.url || '',
-                    description: response?.data?.data?.description || 'N/A'
+                    title: response?.data?.data?.product?.title || 'N/A',
+                    worth: response?.data?.data?.product?.worth || 'N/A',
+                    imageUrl: response?.data?.data?.product?.image[0]?.url || '',
+                    description: response?.data?.data?.product?.description || 'N/A'
                 });
             }
         } catch (error) {
@@ -35,8 +35,8 @@ const RewardComponent = () => {
             navigate("/error", {
                 state: {
                     error: {
-                        status: error?.response?.status ? error?.response?.status : (error?.response?.data?.error?.status || 500),
-                        message: error?.response?.data?.error ? (error?.response?.data?.error || error?.response?.data?.error?.message) : "Unexpected error",
+                        status: error?.response?.status || error?.response?.data?.error?.status || 500,
+                        message: error?.response?.data?.error?.message || error?.response?.data?.error || "Unexpected error",
                         details: "Please try again later or contact support."
                     }
                 }
@@ -44,14 +44,11 @@ const RewardComponent = () => {
         } finally {
             setLoading(false);
         }
-    };
+    }, [contestId, location.search, navigate]);
 
     useEffect(() => {
-        const enroll = async () => {
-            await enrollingUser();
-        };
-        enroll();
-    }, []);
+        enrollingUser();
+    }, [enrollingUser]);
 
     if (loading) return <Loader />;
 
