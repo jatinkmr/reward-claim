@@ -23,10 +23,10 @@ const RewardComponent = () => {
             const response = await allocatingGiftService(reqBody);
             if (response?.data?.status.toLowerCase() === "ok") {
                 setReward({
-                    title: response?.data?.data?.product?.title || 'N/A',
-                    worth: response?.data?.data?.product?.worth || 'N/A',
-                    imageUrl: response?.data?.data?.product?.image[0]?.url || '',
-                    description: response?.data?.data?.product?.description || 'N/A'
+                    giftTitle: response?.data?.data?.gift?.product?.title || 'N/A',
+                    giftWorth: response?.data?.data?.gift?.product?.worth || 'N/A',
+                    giftImageUrl: response?.data?.data?.gift?.product?.image[0]?.url || '',
+                    giftDescription: response?.data?.data?.gift?.product?.description || 'N/A'
                 });
             }
         } catch (error) {
@@ -58,7 +58,7 @@ const RewardComponent = () => {
                 <div className="reward-section">
                     <h1 className="congrats-text">Congratulations!</h1>
                     <img
-                        src={`${baseUrl}${reward.imageUrl}`}
+                        src={`${baseUrl}${reward.giftImageUrl}`}
                         alt="reward-image"
                         className="reward-image"
                     />
@@ -66,10 +66,10 @@ const RewardComponent = () => {
 
                 <p className="won-text">You've won a</p>
                 <div className="prize-card">
-                    <h3 className="prize-title">{reward.title || 'N/A'}</h3>
-                    <p className="worth-text">worth ₹{reward.worth || 'N/A'}</p>
+                    <h3 className="prize-title">{reward.giftTitle || 'N/A'}</h3>
+                    <p className="worth-text">worth ₹{reward.giftWorth || 'N/A'}</p>
                     <hr className="divider" />
-                    <p className="description-text">{reward.description || 'N/A'}</p>
+                    <p className="description-text">{reward.giftDescription || 'N/A'}</p>
                 </div>
 
                 <div className="tab-buttons">
@@ -101,9 +101,9 @@ const RewardComponent = () => {
                             <li>
                                 After verification, the staff will hand over the boAt smartwatch if available on-site.
                             </li>
-                            <li>
+                            {/* <li>
                                 <strong>Deadline:</strong> Redeem your prize by August 30, 2025. Prizes may not be claimable after this date.
-                            </li>
+                            </li> */}
                         </ol>
                     </div>
                 )}
