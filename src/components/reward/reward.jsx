@@ -23,10 +23,10 @@ const RewardComponent = () => {
             const response = await allocatingGiftService(reqBody);
             if (response?.data?.status.toLowerCase() === "ok") {
                 setReward({
-                    giftTitle: response?.data?.data?.gift?.product?.title || 'N/A',
-                    giftWorth: response?.data?.data?.gift?.product?.worth || 'N/A',
-                    giftImageUrl: response?.data?.data?.gift?.product?.image[0]?.url || '',
-                    giftDescription: response?.data?.data?.gift?.product?.description || 'N/A'
+                    giftTitle: response?.data?.data?.gift?.product?.title || response?.data?.data?.product?.title || 'N/A',
+                    giftWorth: response?.data?.data?.gift?.product?.worth || response?.data?.data?.product?.worth || 'N/A',
+                    giftImageUrl: response?.data?.data?.gift?.product?.image[0]?.url || response?.data?.data?.product?.image[0]?.url || '',
+                    giftDescription: response?.data?.data?.gift?.product?.description || response?.data?.data?.product?.description || 'N/A'
                 });
             }
         } catch (error) {
