@@ -6,6 +6,7 @@ import { Container } from "reactstrap";
 import { baseUrl } from "../../services";
 import DescriptionComponent from "./description";
 import AvailAndTermsComponent from "./availAndTerms";
+import PrizeGiftComponent from "./prizeGift";
 
 const RewardComponent = () => {
     const { contestId } = useParams();
@@ -27,7 +28,9 @@ const RewardComponent = () => {
                     giftTitle: response?.data?.data?.gift?.product?.title || response?.data?.data?.product?.title || 'N/A',
                     giftWorth: response?.data?.data?.gift?.product?.worth || response?.data?.data?.product?.worth || 'N/A',
                     giftImageUrl: response?.data?.data?.gift?.product?.image[0]?.url || response?.data?.data?.product?.image[0]?.url || '',
-                    giftDescription: response?.data?.data?.gift?.product?.description || response?.data?.data?.product?.description || 'N/A'
+                    giftDescription: response?.data?.data?.gift?.product?.description || response?.data?.data?.product?.description || 'N/A',
+                    phaseEndDate: response?.data?.data?.phase?.endDate || 'N/A',
+                    jackPotPrize: response?.data?.data?.phase?.prizeInfo || 'N/A'
                 });
             }
         } catch (error) {
@@ -59,7 +62,7 @@ const RewardComponent = () => {
                 <div className="reward-section">
                     <h1 className="congrats-text">Congratulations!</h1>
                     <img
-                        src={`${reward.giftImageUrl}`}
+                        src={reward.giftImageUrl?.includes('media.strapiapp.com') ? reward.giftImageUrl : `${baseUrl}${reward.giftImageUrl}`}
                         alt="reward-image"
                         className="reward-image"
                     />
@@ -68,6 +71,8 @@ const RewardComponent = () => {
                 <p className="won-text">You've won a</p>
 
                 <DescriptionComponent title={reward.giftTitle} worth={reward.giftWorth} description={reward.giftDescription} />
+
+                <PrizeGiftComponent title="Mega Jackpot" prizeInfo={reward} endDate={reward.phaseEndDate} textBackgroundColor="skyblue" imageBackgroundColor="blue" />
 
                 <AvailAndTermsComponent />
             </div>
