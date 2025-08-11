@@ -10,7 +10,7 @@ code {
 }
 
 .reward-container {
-  background: #121212;
+  background: #0f0f0f 80%;
   color: #ffffff;
   min-height: 100vh;
   display: flex;
@@ -20,39 +20,43 @@ code {
 }
 
 .reward-box {
-  background: linear-gradient(145deg, #1e1e1e, #292929);
-  border-radius: 24px;
+  /* background: linear-gradient(145deg, #1e1e1e, #292929); */
+  /* border-radius: 24px; */
   padding: 40px 30px;
   max-width: 620px;
   text-align: center;
-  box-shadow: 0 0 25px rgba(255, 255, 255, 0.05);
+  /* box-shadow: 0 0 25px rgba(255, 255, 255, 0.05); */
 }
 
 /* Highlight Section */
 .reward-section {
-  background: radial-gradient(ellipse at center, rgba(255, 223, 129, 0.15), #0f0f0f 80%);
+  background: transparent;
   position: relative;
   padding: 40px 20px 20px;
   text-align: center;
   border-radius: 20px;
-  overflow: hidden;
+  overflow:visible;
 }
 
 .reward-section::before {
-  content: '';
+  content: "";
   position: absolute;
-  width: 120%;
+  left: 50%;
+  top: 35%;
+  transform: translate(-50%, -35%);
+  width: 120%;             /* way larger than the card */
   height: 120%;
-  opacity: 0.1;
-  left: -10%;
-  top: -10%;
+  border-radius: 50%;
+  pointer-events: none;
   z-index: 0;
+  background: radial-gradient(circle,
+    rgba(255, 208, 128, 0.28) 0%,
+    rgba(255, 208, 128, 0.12) 35%,
+    transparent 60%);
 }
 
-.reward-section>* {
-  position: relative;
-  z-index: 1;
-}
+.reward-section > * { position: relative; z-index: 1; }
+
 
 /* Congrats Text */
 .congrats-text {
