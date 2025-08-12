@@ -30,7 +30,8 @@ const RewardComponent = () => {
                     giftImageUrl: response?.data?.data?.gift?.product?.image[0]?.url || response?.data?.data?.product?.image[0]?.url || '',
                     giftDescription: response?.data?.data?.gift?.product?.description || response?.data?.data?.product?.description || 'N/A',
                     phaseEndDate: response?.data?.data?.phase?.endDate || 'N/A',
-                    jackPotPrize: response?.data?.data?.phase?.prizeInfo || 'N/A'
+                    jackPotPrize: response?.data?.data?.phase?.prizeInfo || 'N/A',
+                    redemptionCode: response?.data?.data?.redemptionCode || 'N/A',
                 });
             }
         } catch (error) {
@@ -72,7 +73,11 @@ const RewardComponent = () => {
 
                 <DescriptionComponent title={reward.giftTitle} worth={reward.giftWorth} description={reward.giftDescription} />
 
-                <PrizeGiftComponent title="Mega Jackpot" prizeInfo={reward} endDate={reward.phaseEndDate} textBackgroundColor="skyblue" imageBackgroundColor="blue" />
+                <p>
+                    Redemption Code: {reward.redemptionCode}
+                </p>
+
+                <PrizeGiftComponent title="Mega Jackpot" prizeInfo={reward?.jackPotPrize || {}} endDate={reward.phaseEndDate} textBackgroundColor="skyblue" imageBackgroundColor="blue" />
 
                 <AvailAndTermsComponent />
             </div>

@@ -345,7 +345,7 @@ code {
   font-size: 14px;
   font-weight: 500;
   margin-top: 12px;
-  width: 10rem;
+  width: 12rem;
 }
 
 .jackpot-image {
@@ -353,6 +353,6 @@ code {
 }
 
 .jackpot-image img {
-  max-width: 160px;
+  max-width: 140px;
   height: auto;
 }

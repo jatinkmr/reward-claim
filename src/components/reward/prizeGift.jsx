@@ -1,24 +1,36 @@
-import { Col, Container, Row } from "reactstrap";
+import { Col, Row } from "reactstrap";
+import { baseUrl } from "../../services";
 
-const PrizeGiftComponent = ({ title, endDate, textBackgroundColor, imageBackgroundColor }) => {
+const PrizeGiftComponent = ({ title, prizeInfo, endDate, textBackgroundColor, imageBackgroundColor }) => {
+
+    const formatDate = (dateInput) => {
+        const date = new Date(dateInput);
+        if (Number.isNaN(date.getTime())) return "TBA";
+        return new Intl.DateTimeFormat("en-GB", {
+            day: "2-digit",
+            month: "short",
+            year: "numeric",
+        }).format(date);
+    };
+
     return (
         <>
             <div className="jackpotWrapper">
                 <Row className="jackpot-banner no-stack">
                     {/* Left Section */}
-                    <Col xs="7" className="jackpot-text">
+                    <Col xs="7" className="jackpot-text" style={{ backgroundColor: textBackgroundColor }}>
                         <p className="jackpot-subtitle">{title}</p>
                         <h2 className="jackpot-title">
-                            Your chance to win <br /> {}
+                            Your chance to win <br /> {prizeInfo?.product?.title || 'N/A'}
                         </h2>
-                        <div className="jackpot-result">Result on Sep 1</div>
+                        <div className="jackpot-result">Result on {formatDate(endDate)}</div>
                     </Col>
 
                     {/* Right Section */}
-                    <Col xs="5" className="jackpot-image">
+                    <Col xs="5" className="jackpot-image" style={{ backgroundColor: imageBackgroundColor }}>
                         <img
-                            src="https://images-cdn.ubuy.co.in/667950946610b7744c0d4637-2020-new-sony-playstation-5-disc.jpg"
-                            alt="Playstation 5"
+                            src={prizeInfo?.product?.image[0]?.url?.includes('media.strapiapp.com') ? prizeInfo?.product?.image[0]?.url : (prizeInfo?.product?.image[0]?.url ? `${baseUrl}${prizeInfo?.product?.image[0]?.url}` : '') || ''}
+                            alt={prizeInfo?.product?.title || 'N/A'}
                         />
                     </Col>
                 </Row>
