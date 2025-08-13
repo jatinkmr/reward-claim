@@ -6,10 +6,12 @@ import PrizeComponent from './prize/prize.jsx';
 import GiftAvailAndTermsComponent from './giftTnC/giftTnC.jsx';
 import DescriptionComponent from './description/description.jsx';
 import ImageSectionComponent from './imageSection/imageSection.jsx';
+import PhaseEnrollmentComponent from './phase/phase.jsx';
 
 export {
     RewardComponent, NotFoundComponent,
     ErrorComponent, GiftComponent,
     PrizeComponent, GiftAvailAndTermsComponent,
-    DescriptionComponent, ImageSectionComponent
+    DescriptionComponent, ImageSectionComponent,
+    PhaseEnrollmentComponent
 }

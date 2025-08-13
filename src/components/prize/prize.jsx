@@ -1,7 +1,9 @@
 import { Button } from "reactstrap";
 import { baseUrl } from "../../services";
+import { useNavigate } from "react-router-dom";
 
-const PrizeGiftComponent = ({ title, prizeInfo, endDate, textBackgroundColor, imageBackgroundColor }) => {
+const PrizeGiftComponent = ({ contestId, title, prizeInfo, endDate, textBackgroundColor, imageBackgroundColor, phaseId }) => {
+    const navigate = useNavigate();
 
     const formatDate = (dateInput) => {
         const date = new Date(dateInput);
@@ -24,10 +26,7 @@ const PrizeGiftComponent = ({ title, prizeInfo, endDate, textBackgroundColor, im
                             Your chance to win<br />
                             {prizeInfo?.product?.title || 'Playstation 5'}
                         </h2>
-                        {/* <div className="jackpot-result">
-                            Result on {formatDate(endDate)}
-                        </div> */}
-                        <Button className="jackpot-result">
+                        <Button className="jackpot-result" onClick={() => navigate(`/contest/${contestId}/phase/${phaseId}`)}>
                             Result on {formatDate(endDate)}
                         </Button>
                     </div>

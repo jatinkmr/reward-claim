@@ -1,13 +1,12 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import { useLocation, useNavigate, useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import Loader from '../loader/loader';
-import { allocatingGiftService, baseUrl } from '../../services';
+import { allocatingGiftService } from '../../services';
 import { Container } from 'reactstrap';
 import { PrizeComponent as PrizeGiftComponent, GiftAvailAndTermsComponent, DescriptionComponent, ImageSectionComponent } from '../index';
 
 const GiftComponent = () => {
     const { contestId } = useParams();
-    const location = useLocation();
     const [loading, setLoading] = useState(false);
     const [gift, setGift] = useState({});
     const navigate = useNavigate();
@@ -33,6 +32,7 @@ const GiftComponent = () => {
                     jackPotPrize: response?.data?.data?.phase?.prizeInfo || 'N/A',
                     redemptionCode: response?.data?.data?.redemptionCode || 'N/A',
                     congratulationHeading: response?.data?.data?.gift?.congratulationHeading || response?.data?.data?.congratulationHeading || 'Congratulations!',
+                    phaseId: response?.data?.data?.phase?.documentId
                 });
             }
         } catch (error) {
@@ -50,7 +50,7 @@ const GiftComponent = () => {
         } finally {
             setLoading(false);
         }
-    }, [contestId, location.search, navigate]);
+    }, [contestId, navigate]);
 
     useEffect(() => {
         enrollmentGift();
@@ -74,7 +74,7 @@ const GiftComponent = () => {
                         </p>
                     ) : null}
 
-                    {(gift?.phaseEndDate !== 'N/A') ? <PrizeGiftComponent title="Mega Jackpot" prizeInfo={gift?.jackPotPrize || {}} endDate={gift.phaseEndDate} textBackgroundColor="#4F46E5" imageBackgroundColor="#27218D" /> : null}
+                    {(gift?.phaseEndDate !== 'N/A') ? <PrizeGiftComponent contestId={contestId} title="Mega Jackpot" prizeInfo={gift?.jackPotPrize || {}} endDate={gift.phaseEndDate} textBackgroundColor="#4F46E5" imageBackgroundColor="#27218D" phaseId={gift.phaseId} /> : null}
 
                     <GiftAvailAndTermsComponent />
                 </div>
