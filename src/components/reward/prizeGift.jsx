@@ -1,4 +1,3 @@
-import { Col, Row } from "reactstrap";
 import { baseUrl } from "../../services";
 
 const PrizeGiftComponent = ({ title, prizeInfo, endDate, textBackgroundColor, imageBackgroundColor }) => {
@@ -15,25 +14,32 @@ const PrizeGiftComponent = ({ title, prizeInfo, endDate, textBackgroundColor, im
 
     return (
         <>
-            <div className="jackpotWrapper">
-                <Row className="jackpot-banner no-stack">
+            <div className="jackpot-wrapper">
+                <div className="jackpot-banner">
                     {/* Left Section */}
-                    <Col xs="7" className="jackpot-text" style={{ backgroundColor: textBackgroundColor }}>
+                    <div className="jackpot-text" style={{ backgroundColor: textBackgroundColor }}>
                         <p className="jackpot-subtitle">{title}</p>
                         <h2 className="jackpot-title">
-                            Your chance to win <br /> {prizeInfo?.product?.title || 'N/A'}
+                            Your chance to win<br />
+                            {prizeInfo?.product?.title || 'Playstation 5'}
                         </h2>
-                        <div className="jackpot-result">Result on {formatDate(endDate)}</div>
-                    </Col>
+                        <div className="jackpot-result">
+                            Result on {formatDate(endDate)}
+                        </div>
+                    </div>
 
                     {/* Right Section */}
-                    <Col xs="5" className="jackpot-image" style={{ backgroundColor: imageBackgroundColor }}>
+                    <div className="jackpot-image" style={{ backgroundColor: imageBackgroundColor }}>
                         <img
-                            src={prizeInfo?.product?.image[0]?.url?.includes('media.strapiapp.com') ? prizeInfo?.product?.image[0]?.url : (prizeInfo?.product?.image[0]?.url ? `${baseUrl}${prizeInfo?.product?.image[0]?.url}` : '') || ''}
-                            alt={prizeInfo?.product?.title || 'N/A'}
+                            src={prizeInfo?.product?.image[0]?.url?.includes('media.strapiapp.com')
+                                ? prizeInfo?.product?.image[0]?.url
+                                : (prizeInfo?.product?.image[0]?.url
+                                    ? `${baseUrl}${prizeInfo?.product?.image[0]?.url}`
+                                    : '') || ''}
+                            alt={prizeInfo?.product?.title || 'Prize Image'}
                         />
-                    </Col>
-                </Row>
+                    </div>
+                </div>
             </div>
         </>
     )

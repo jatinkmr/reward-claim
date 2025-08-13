@@ -73,11 +73,11 @@ const RewardComponent = () => {
 
                 <DescriptionComponent title={reward.giftTitle} worth={reward.giftWorth} description={reward.giftDescription} />
 
-                <p>
+                <p className="redemption-code">
                     Redemption Code: {reward.redemptionCode}
                 </p>
 
-                <PrizeGiftComponent title="Mega Jackpot" prizeInfo={reward?.jackPotPrize || {}} endDate={reward.phaseEndDate} textBackgroundColor="skyblue" imageBackgroundColor="blue" />
+                {(reward?.phaseEndDate !== 'N/A') ? <PrizeGiftComponent title="Mega Jackpot" prizeInfo={reward?.jackPotPrize || {}} endDate={reward.phaseEndDate} textBackgroundColor="#4F46E5" imageBackgroundColor="#27218D" /> : null}
 
                 <AvailAndTermsComponent />
             </div>
