@@ -341,16 +341,9 @@ code {
 }
 
 .jackpot-result {
-  display: inline-block;
-  background: rgba(0, 0, 0, 0.8);
-  padding: 10px 20px;
-  border-radius: 25px;
-  font-size: 14px;
-  font-weight: 600;
-  color: white;
+  display: inline-block !important;
+  background: rgba(0, 0, 0, 0.8) !important;
   width: fit-content;
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .jackpot-image {
@@ -394,11 +387,6 @@ code {
     font-size: 24px;
   }
 
-  .jackpot-result {
-    padding: 8px 16px;
-    font-size: 13px;
-  }
-
   .jackpot-image {
     padding: 15px;
   }
@@ -431,8 +419,7 @@ code {
   }
 
   .jackpot-result {
-    padding: 6px 12px;
-    font-size: 12px;
+    font-size: 12px !important;
   }
 
   .jackpot-image {

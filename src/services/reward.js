@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { allocatingGiftUrl, contestEnrollmentUrl } from '.';
+import { allocatingGiftUrl, contestEnrollmentUrl } from './routes';
 
 const enrollService = async reqBody => {
     return await axios.post(contestEnrollmentUrl, reqBody)
