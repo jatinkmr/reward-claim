@@ -2,8 +2,10 @@ import { Button } from "reactstrap";
 import { baseUrl } from "../../services";
 import { useNavigate } from "react-router-dom";
 
-const PrizeGiftComponent = ({ contestId, title, prizeInfo, endDate, textBackgroundColor, imageBackgroundColor, phaseId }) => {
+const PrizeGiftComponent = ({ contestId, title, prizeInfo, endDate, textBackgroundColor, imageBackgroundColor, phaseId, isEnrollment = false, enrollmentGift }) => {
     const navigate = useNavigate();
+
+    console.log('enrollmentGift -> ', enrollmentGift)
 
     const formatDate = (dateInput) => {
         const date = new Date(dateInput);
@@ -23,24 +25,42 @@ const PrizeGiftComponent = ({ contestId, title, prizeInfo, endDate, textBackgrou
                     <div className="jackpot-text" style={{ backgroundColor: textBackgroundColor }}>
                         <p className="jackpot-subtitle">{title}</p>
                         <h2 className="jackpot-title">
-                            Your chance to win<br />
-                            {prizeInfo?.product?.title || 'Playstation 5'}
+                            {isEnrollment ? (enrollmentGift?.gift?.product?.title || 'N/A') : `Your chance to win`}
+                            <br />
+                            {isEnrollment ? null : (prizeInfo?.product?.title || 'N/A')}
                         </h2>
-                        <Button className="jackpot-result" onClick={() => navigate(`/contest/${contestId}/phase/${phaseId}`)}>
-                            Result on {formatDate(endDate)}
-                        </Button>
+                        {isEnrollment ? (
+                            <Button className="jackpot-result" onClick={() => navigate(`/contest/${contestId}/gift`)}>
+                                {enrollmentGift?.giftClaimedAt ? 'Claimed' : 'Claim Now'}
+                            </Button>
+                        ) : (
+                            <Button className="jackpot-result" onClick={() => navigate(`/contest/${contestId}/phase/${phaseId}`)}>
+                                Result on {formatDate(endDate)}
+                            </Button>
+                        )}
                     </div>
 
                     {/* Right Section */}
                     <div className="jackpot-image" style={{ backgroundColor: imageBackgroundColor }}>
-                        <img
-                            src={prizeInfo?.product?.image[0]?.url?.includes('media.strapiapp.com')
-                                ? prizeInfo?.product?.image[0]?.url
-                                : (prizeInfo?.product?.image[0]?.url
-                                    ? `${baseUrl}${prizeInfo?.product?.image[0]?.url}`
-                                    : '') || ''}
-                            alt={prizeInfo?.product?.title || 'Prize Image'}
-                        />
+                        {isEnrollment ? (
+                            <img
+                                alt={enrollmentGift?.gift?.product?.title || 'Prize Image'}
+                                src={
+                                    enrollmentGift?.gift?.product?.image[0]?.url?.includes('media.strapiapp.com')
+                                        ? enrollmentGift?.gift?.product?.image[0]?.url
+                                        : (enrollmentGift?.gift?.product?.image[0]?.url
+                                            ? `${baseUrl}${enrollmentGift?.gift?.product?.image[0]?.url}` : '') || ''
+                                }
+                            />
+                        ) : (
+                            <img
+                                src={prizeInfo?.product?.image[0]?.url?.includes('media.strapiapp.com')
+                                    ? prizeInfo?.product?.image[0]?.url
+                                    : (prizeInfo?.product?.image[0]?.url
+                                        ? `${baseUrl}${prizeInfo?.product?.image[0]?.url}` : '') || ''}
+                                alt={prizeInfo?.product?.title || 'Prize Image'}
+                            />
+                        )}
                     </div>
                 </div>
             </div>

@@ -2,16 +2,20 @@ import RewardComponent from './reward/reward.jsx';
 import NotFoundComponent from './404/page404.jsx';
 import ErrorComponent from './errorPage/errorPage.jsx'
 import GiftComponent from './gift/gift.jsx';
-import PrizeComponent from './prize/prize.jsx';
+import PrizeGiftComponent from './prize/prize.jsx';
 import GiftAvailAndTermsComponent from './giftTnC/giftTnC.jsx';
 import DescriptionComponent from './description/description.jsx';
 import ImageSectionComponent from './imageSection/imageSection.jsx';
 import PhaseEnrollmentComponent from './phase/phase.jsx';
+import UserHeaderComponent from './userHeader/userHeader.jsx'
+import Loader from './loader/loader.jsx';
+import PrizeTermsAndConditionsComponent from './prizeTnC/prizeTnC.jsx'
 
 export {
     RewardComponent, NotFoundComponent,
     ErrorComponent, GiftComponent,
-    PrizeComponent, GiftAvailAndTermsComponent,
+    PrizeGiftComponent, GiftAvailAndTermsComponent,
     DescriptionComponent, ImageSectionComponent,
-    PhaseEnrollmentComponent
+    PhaseEnrollmentComponent, UserHeaderComponent,
+    Loader, PrizeTermsAndConditionsComponent
 }

@@ -1,9 +1,8 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import Loader from '../loader/loader';
 import { allocatingGiftService } from '../../services';
 import { Container } from 'reactstrap';
-import { PrizeComponent as PrizeGiftComponent, GiftAvailAndTermsComponent, DescriptionComponent, ImageSectionComponent } from '../index';
+import { GiftAvailAndTermsComponent, DescriptionComponent, ImageSectionComponent, UserHeaderComponent, Loader, PrizeGiftComponent } from '../index';
 
 const GiftComponent = () => {
     const { contestId } = useParams();
@@ -32,12 +31,13 @@ const GiftComponent = () => {
                     jackPotPrize: response?.data?.data?.phase?.prizeInfo || 'N/A',
                     redemptionCode: response?.data?.data?.redemptionCode || 'N/A',
                     congratulationHeading: response?.data?.data?.gift?.congratulationHeading || response?.data?.data?.congratulationHeading || 'Congratulations!',
-                    phaseId: response?.data?.data?.phase?.documentId
+                    phaseId: response?.data?.data?.phase?.documentId,
+                    customerName: response?.data?.data?.customerInfo?.name || 'N/A'
                 });
             }
         } catch (error) {
-            console.error("Enrollment failed:", error);
-            console.log('error.response -> ', error?.response?.data?.error)
+            // console.error("Enrollment failed:", error);
+            // console.log('error.response -> ', error?.response?.data?.error)
             navigate("/error", {
                 state: {
                     error: {
@@ -62,6 +62,8 @@ const GiftComponent = () => {
         <>
             <Container fluid className="reward-container">
                 <div className="reward-box">
+                    <UserHeaderComponent customerName={gift.customerName} />
+
                     <ImageSectionComponent headingText={gift.congratulationHeading} imageUrl={gift.giftImageUrl} />
 
                     <p className="won-text">You've won a</p>
