@@ -35,7 +35,7 @@ const PrizeGiftComponent = ({ contestId, title, prizeInfo, endDate, textBackgrou
                             </Button>
                         ) : (
                             <Button className="jackpot-result" onClick={() => navigate(`/contest/${contestId}/phase/${phaseId}`)}>
-                                Result on {formatDate(endDate)}
+                                Result Declared on {formatDate(endDate)}
                             </Button>
                         )}
                     </div>

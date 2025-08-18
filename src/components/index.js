@@ -11,10 +11,11 @@ import UserHeaderComponent from './userHeader/userHeader.jsx'
 import Loader from './loader/loader.jsx';
 import PrizeTermsAndConditionsComponent from './prizeTnC/prizeTnC.jsx';
 import IsBetterLuckNextTime from './betterLuckNextTime/betterLuckNextTime.jsx';
+import JackPotWon from './jackPotWon/jackPotWon.jsx';
 
 export {
     RewardComponent, NotFoundComponent, IsBetterLuckNextTime,
-    ErrorComponent, GiftComponent,
+    ErrorComponent, GiftComponent, JackPotWon,
     PrizeGiftComponent, GiftAvailAndTermsComponent,
     DescriptionComponent, ImageSectionComponent,
     PhaseEnrollmentComponent, UserHeaderComponent,

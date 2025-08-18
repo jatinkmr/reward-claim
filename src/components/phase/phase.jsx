@@ -1,6 +1,6 @@
 import { useNavigate, useParams } from "react-router-dom";
 import { Container } from "reactstrap";
-import { DescriptionComponent, ImageSectionComponent, IsBetterLuckNextTime, Loader, PrizeGiftComponent, PrizeTermsAndConditionsComponent, UserHeaderComponent } from "../index";
+import { DescriptionComponent, ImageSectionComponent, IsBetterLuckNextTime, JackPotWon, Loader, PrizeGiftComponent, PrizeTermsAndConditionsComponent, UserHeaderComponent } from "../index";
 import { useEffect, useState } from "react";
 import { fetchPhaseService } from "../../services";
 
@@ -39,7 +39,9 @@ const PhaseEnrollmentComponent = () => {
                         customerName: response?.data?.data?.customerInfo?.name,
                         endDate: response?.data?.data?.endDate,
                         prizes: response?.data?.data?.prizes?.length ? response?.data?.data?.prizes : [],
-                        prizeInfo: response?.data?.data?.prizeInfo || 'N/A'
+                        prizeInfo: response?.data?.data?.prizeInfo || 'N/A',
+                        isWon: response?.data?.data?.enrollmentGift?.prize || false,
+                        redemptionCode: response?.data?.data?.enrollmentGift?.redemptionCode || 'N/A'
                     })
                     setEnrollmentGift(response?.data?.data?.enrollmentGift)
                     setIsBetterLuck(!!response?.data?.data?.enrollmentGift?.prize?.product?.isBetterLuck)
@@ -66,6 +68,8 @@ const PhaseEnrollmentComponent = () => {
     if (loading) return <Loader />
 
     if (isBetterLuck) return <IsBetterLuckNextTime contestId={contestId} phaseInfo={phase} />
+
+    if (phase?.isWon) return <JackPotWon contestId={contestId} phaseInfo={phase} enrollmentGiftPrize={enrollmentGift} />
 
     return (
         <>
