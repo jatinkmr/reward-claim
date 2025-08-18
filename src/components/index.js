@@ -9,10 +9,11 @@ import ImageSectionComponent from './imageSection/imageSection.jsx';
 import PhaseEnrollmentComponent from './phase/phase.jsx';
 import UserHeaderComponent from './userHeader/userHeader.jsx'
 import Loader from './loader/loader.jsx';
-import PrizeTermsAndConditionsComponent from './prizeTnC/prizeTnC.jsx'
+import PrizeTermsAndConditionsComponent from './prizeTnC/prizeTnC.jsx';
+import IsBetterLuckNextTime from './betterLuckNextTime/betterLuckNextTime.jsx';
 
 export {
-    RewardComponent, NotFoundComponent,
+    RewardComponent, NotFoundComponent, IsBetterLuckNextTime,
     ErrorComponent, GiftComponent,
     PrizeGiftComponent, GiftAvailAndTermsComponent,
     DescriptionComponent, ImageSectionComponent,

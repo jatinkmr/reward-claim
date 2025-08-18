@@ -35,7 +35,7 @@ code {
   padding: 40px 20px 20px;
   text-align: center;
   border-radius: 20px;
-  overflow:visible;
+  overflow: visible;
 }
 
 .reward-section::before {
@@ -44,18 +44,22 @@ code {
   left: 50%;
   top: 35%;
   transform: translate(-50%, -35%);
-  width: 120%;             /* way larger than the card */
+  width: 120%;
+  /* way larger than the card */
   height: 120%;
   border-radius: 50%;
   pointer-events: none;
   z-index: 0;
   background: radial-gradient(circle,
-    rgba(255, 208, 128, 0.28) 0%,
-    rgba(255, 208, 128, 0.12) 35%,
-    transparent 60%);
+      rgba(255, 208, 128, 0.28) 0%,
+      rgba(255, 208, 128, 0.12) 35%,
+      transparent 60%);
 }
 
-.reward-section > * { position: relative; z-index: 1; }
+.reward-section>* {
+  position: relative;
+  z-index: 1;
+}
 
 
 /* Congrats Text */
@@ -155,6 +159,13 @@ code {
 .instructions ol {
   padding-left: 20px;
   margin: 0;
+}
+
+/* BetterLuck Next Time */
+.betterLuckNextTimeHeading {
+  font-size: 24px;
+  line-height: 140%;
+  font-weight: 600;
 }
 
 @media screen and (max-width: 500px) {

@@ -2,7 +2,7 @@ import { Col, Row } from "reactstrap";
 import { baseUrl } from "../../services";
 import './imageSection.css';
 
-const ImageSectionComponent = ({ imageUrl, headingText, isJackpot = false, endDate }) => {
+const ImageSectionComponent = ({ imageUrl, headingText, isJackpot = false, endDate, isBetterLuck = false }) => {
     const formatDate = (dateInput) => {
         const date = new Date(dateInput);
         if (Number.isNaN(date.getTime())) return "TBA";
@@ -15,7 +15,15 @@ const ImageSectionComponent = ({ imageUrl, headingText, isJackpot = false, endDa
 
     return (
         <div className="reward-section">
-            {isJackpot ? (
+            {isBetterLuck ? (
+                <>
+                    <Row>
+                        <Col>
+                            <p className="betterLuckNextTimeHeading">Sorry, Now win today but <br /> better luck next time!</p>
+                        </Col>
+                    </Row>
+                </>
+            ) : (isJackpot ? (
                 <>
                     <Row>
                         <Col xs={3}>
@@ -36,9 +44,9 @@ const ImageSectionComponent = ({ imageUrl, headingText, isJackpot = false, endDa
                 </>
             ) : (
                 <h1 className="congrats-text">{headingText}</h1>
-            )}
+            ))}
             <img
-                src={imageUrl?.includes('media.strapiapp.com') ? imageUrl : `${baseUrl}${imageUrl}`}
+                src={isBetterLuck ? '/emptyGiftBox.svg' : (imageUrl?.includes('media.strapiapp.com') ? imageUrl : `${baseUrl}${imageUrl}`)}
                 alt="reward-image"
                 className="reward-image"
             />
