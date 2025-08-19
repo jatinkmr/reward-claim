@@ -40,14 +40,13 @@ const PhaseEnrollmentComponent = () => {
                         endDate: response?.data?.data?.endDate,
                         prizes: response?.data?.data?.prizes?.length ? response?.data?.data?.prizes : [],
                         prizeInfo: response?.data?.data?.prizeInfo || 'N/A',
-                        isWon: response?.data?.data?.enrollmentGift?.prize || false,
+                        isWon: (response?.data?.data?.enrollmentGift?.prize?.documentId != ""),
                         redemptionCode: response?.data?.data?.enrollmentGift?.redemptionCode || 'N/A'
                     })
                     setEnrollmentGift(response?.data?.data?.enrollmentGift)
                     setIsBetterLuck(!!response?.data?.data?.enrollmentGift?.prize?.product?.isBetterLuck)
                 }
             } catch (error) {
-                // console.log('error -> ', error)
                 navigate("/error", {
                     state: {
                         error: {
@@ -67,7 +66,7 @@ const PhaseEnrollmentComponent = () => {
 
     if (loading) return <Loader />
 
-    if (isBetterLuck) return <IsBetterLuckNextTime contestId={contestId} phaseInfo={phase} />
+    if (isBetterLuck) return <IsBetterLuckNextTime contestId={contestId} phaseInfo={phase} enrollmentGift={enrollmentGift} />
 
     if (phase?.isWon) return <JackPotWon contestId={contestId} phaseInfo={phase} enrollmentGiftPrize={enrollmentGift} />
 

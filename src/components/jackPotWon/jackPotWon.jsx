@@ -2,8 +2,6 @@ import { Container } from "reactstrap";
 import { DescriptionComponent, GiftAvailAndTermsComponent, ImageSectionComponent, PrizeGiftComponent, UserHeaderComponent } from "../index";
 
 const JackPotWon = ({ contestId, phaseInfo, enrollmentGiftPrize }) => {
-    console.log('phaseInfo -> ', phaseInfo)
-    console.log('enrollmentGiftPrize -> ', enrollmentGiftPrize)
     return (
         <>
             <Container fluid className="reward-container">
@@ -22,7 +20,7 @@ const JackPotWon = ({ contestId, phaseInfo, enrollmentGiftPrize }) => {
                         </p>
                     ) : null}
 
-                    <PrizeGiftComponent contestId={contestId} title="Enrollment Gift" textBackgroundColor="#D1AA61" imageBackgroundColor="#816632" isEnrollment={true} enrollmentGift={enrollmentGiftPrize} />
+                    <PrizeGiftComponent contestId={contestId} title="Enrollment Gift" textBackgroundColor="#D1AA61" imageBackgroundColor="#816632" isEnrollment={true} enrollmentGift={enrollmentGiftPrize} prizeInfo={phaseInfo.prizeInfo || {}} />
 
                     <GiftAvailAndTermsComponent />
                 </div>

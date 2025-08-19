@@ -5,8 +5,6 @@ import { useNavigate } from "react-router-dom";
 const PrizeGiftComponent = ({ contestId, title, prizeInfo, endDate, textBackgroundColor, imageBackgroundColor, phaseId, isEnrollment = false, enrollmentGift }) => {
     const navigate = useNavigate();
 
-    console.log('enrollmentGift -> ', enrollmentGift)
-
     const formatDate = (dateInput) => {
         const date = new Date(dateInput);
         if (Number.isNaN(date.getTime())) return "TBA";

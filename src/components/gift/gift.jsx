@@ -36,8 +36,6 @@ const GiftComponent = () => {
                 });
             }
         } catch (error) {
-            // console.error("Enrollment failed:", error);
-            // console.log('error.response -> ', error?.response?.data?.error)
             navigate("/error", {
                 state: {
                     error: {
