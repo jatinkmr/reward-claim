@@ -40,7 +40,7 @@ const PhaseEnrollmentComponent = () => {
                         endDate: response?.data?.data?.endDate,
                         prizes: response?.data?.data?.prizes?.length ? response?.data?.data?.prizes : [],
                         prizeInfo: response?.data?.data?.prizeInfo || 'N/A',
-                        isWon: (response?.data?.data?.enrollmentGift?.prize?.documentId != ""),
+                        isWon: (response?.data?.data?.enrollmentGift?.prize?.documentId !== ""),
                         redemptionCode: response?.data?.data?.enrollmentGift?.redemptionCode || 'N/A'
                     })
                     setEnrollmentGift(response?.data?.data?.enrollmentGift)
