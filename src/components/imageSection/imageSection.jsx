@@ -19,7 +19,7 @@ const ImageSectionComponent = ({ imageUrl, headingText, headingText2, isJackpot 
                 <>
                     <Row>
                         <Col>
-                            <p className="betterLuckNextTimeHeading">Sorry, Now win today but <br /> better luck next time!</p>
+                            <p className="betterLuckNextTimeHeading">Sorry, No win today but <br /> better luck next time!</p>
                         </Col>
                     </Row>
                 </>
