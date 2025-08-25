@@ -2,7 +2,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { Container } from "reactstrap";
 import { DescriptionComponent, ImageSectionComponent, IsBetterLuckNextTime, JackPotWon, Loader, PrizeGiftComponent, PrizeTermsAndConditionsComponent, UserHeaderComponent } from "../index";
 import { useEffect, useState } from "react";
-import { baseUrl, fetchPhaseService } from "../../services";
+import { fetchPhaseService } from "../../services";
 
 const PhaseEnrollmentComponent = () => {
     const { contestId } = useParams();
@@ -23,7 +23,7 @@ const PhaseEnrollmentComponent = () => {
 
                 const response = await fetchPhaseService(reqBody);
 
-                if (response?.data?.status.toLowerCase() === "ok" || response?.data?.status == 200) {
+                if (response?.data?.status.toLowerCase() === "ok" || response?.data?.status === 200) {
                     if (response?.data?.data?.prizes?.length) {
                         // Filter prize with highest probability value
                         let highestProbabilityPrize = response.data.data.prizes.reduce((maxPrize, currentPrize) => {
