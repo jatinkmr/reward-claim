@@ -36,15 +36,26 @@ const GiftComponent = () => {
                 });
             }
         } catch (error) {
-            navigate("/error", {
-                state: {
-                    error: {
-                        status: error?.response?.status || error?.response?.data?.error?.status || 500,
-                        message: error?.response?.data?.error?.message || error?.response?.data?.error || "Unexpected error",
-                        details: "Please try again later or contact support."
+            if (error?.response?.data?.code === "MAX_GIFTS_REACHED" && error?.response?.data?.phase?.documentId) {
+                let phaseId = error?.response?.data?.phase?.documentId;
+                setGift({
+                    phaseEndDate: error?.response?.data?.phase?.endDate || 'N/A',
+                    jackPotPrize: error?.response?.data?.phase?.prizeInfo || 'N/A',
+                    phaseId,
+                    customerName: error?.response?.data?.customerInfo?.name || 'N/A'
+                })
+                navigate(`/contest/${contestId}/phase/${phaseId}`)
+            } else {
+                navigate("/error", {
+                    state: {
+                        error: {
+                            status: error?.response?.status || error?.response?.data?.error?.status || 500,
+                            message: error?.response?.data?.error?.message || error?.response?.data?.error || "Unexpected error",
+                            details: "Please try again later or contact support."
+                        }
                     }
-                }
-            });
+                });
+            }
         } finally {
             setLoading(false);
         }
