@@ -1,7 +1,7 @@
 /* Welcome Back Header Styles */
 .welcome-back-header {
     padding: 20px 0;
-    min-height: 100px;
+    min-height: 108px;
     display: flex;
     align-items: center;
 }
@@ -11,8 +11,8 @@
 }
 
 .profile-image {
-    width: 60px;
-    height: 60px;
+    width: 32px;
+    height: 32px;
     border-radius: 50%;
     object-fit: cover;
     border: 3px solid #ffffff;
