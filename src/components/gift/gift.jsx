@@ -32,7 +32,8 @@ const GiftComponent = () => {
                     redemptionCode: response?.data?.data?.redemptionCode || 'N/A',
                     congratulationHeading: response?.data?.data?.gift?.congratulationHeading || response?.data?.data?.congratulationHeading || 'Congratulations!',
                     phaseId: response?.data?.data?.phase?.documentId,
-                    customerName: response?.data?.data?.customerInfo?.name || 'N/A'
+                    customerName: response?.data?.data?.customerInfo?.name || 'N/A',
+                    giftClaimedAt: response?.data?.data?.giftClaimedAt || 'N/A'
                 });
             }
         } catch (error) {
@@ -80,9 +81,13 @@ const GiftComponent = () => {
                     <DescriptionComponent title={gift.giftTitle} worth={gift.giftWorth} description={gift.giftDescription} isList={false} />
 
                     {gift.redemptionCode ? (
-                        <p className="redemption-code">
-                            Redemption Code: {gift.redemptionCode}
-                        </p>
+                        (gift?.giftClaimedAt === 'N/A') ? (
+                            <p className="redemption-code">
+                                Redemption Code: {gift.redemptionCode}
+                            </p>
+                        ) : (
+                            <p className="redemption-code">Claimed</p>
+                        )
                     ) : null}
 
                     {(gift?.phaseEndDate !== 'N/A') ? <PrizeGiftComponent contestId={contestId} title="Mega Jackpot" prizeInfo={gift?.jackPotPrize || {}} endDate={gift.phaseEndDate} textBackgroundColor="#4F46E5" imageBackgroundColor="#27218D" phaseId={gift.phaseId} /> : null}
