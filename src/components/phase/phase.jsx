@@ -24,7 +24,10 @@ const PhaseEnrollmentComponent = () => {
                 const response = await fetchPhaseService(reqBody);
 
                 if (response?.data?.status.toLowerCase() === "ok" || response?.data?.status === 200) {
-                    if (response?.data?.data?.prizes?.length) {
+                    // if bannerImage available then show bannerImage else show the highestProbability or rarest prize
+                    if (response?.data?.data?.bannerImage?.url) {
+                        setPrizeImgUrl(response?.data?.data?.bannerImage?.url);
+                    } else if (response?.data?.data?.prizes?.length) {
                         // Filter prize with highest probability value
                         let highestProbabilityPrize = response.data.data.prizes.reduce((maxPrize, currentPrize) => {
                             return (currentPrize.probability > maxPrize.probability) ? currentPrize : maxPrize;
