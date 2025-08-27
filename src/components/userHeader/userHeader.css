@@ -1,21 +1,17 @@
 /* Welcome Back Header Styles */
 .welcome-back-header {
+    margin: 4px;
     padding: 20px 0;
-    min-height: 100px;
     display: flex;
     align-items: center;
-}
-
-.profile-image-container {
-    margin-right: 15px;
+    font-family: 'Manrope';
 }
 
 .profile-image {
-    width: 60px;
-    height: 60px;
+    width: 32px;
+    height: 32px;
     border-radius: 50%;
     object-fit: cover;
-    border: 3px solid #ffffff;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
@@ -25,35 +21,39 @@
 }
 
 .welcome-back {
-    font-size: 15px;
+    font-size: 10px;
     font-weight: 400;
-    margin-bottom: 2px;
     opacity: 0.9;
 }
 
 .user-name {
-    font-size: 25px;
+    font-size:  14px;
     font-weight: 600;
-    line-height: 1.2;
+    line-height: 18px;
     margin: 0;
 }
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
     .welcome-back-header {
-        padding: 15px 0;
+        padding: 12px 0;
     }
 
     .profile-image {
-        width: 50px;
-        height: 50px;
+        width: 32px;
+        height: 32px;
     }
 
     .welcome-back {
-        font-size: 12px;
+        font-size: 10px;
     }
 
     .user-name {
-        font-size: 18px;
+        font-size: 14px;
     }
+}
+
+.profile-section {
+    display: flex;
+    gap: 8px;
 }
