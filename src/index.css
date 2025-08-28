@@ -1,3 +1,20 @@
+/* Root font-size scaling */
+html {
+  font-size: 16px; /* Desktop default */
+}
+
+@media (max-width: 768px) {
+  html {
+    font-size: 12px; /* Tablet */
+  }
+}
+
+@media (max-width: 480px) {
+  html {
+    font-size: 10px; /* Mobile */
+  }
+}
+
 body {
   margin: 0;
   font-family: 'Onest';
@@ -33,11 +50,10 @@ code {
 .reward-section {
   background: transparent;
   position: relative;
-  padding: 10px 20px 20px;
+  padding: 0.625rem 1.25rem 1.25rem; /* 10px 20px 20px */
   text-align: center;
-  border-radius: 20px;
+  border-radius: 1.25rem; /* 20px */
   overflow: visible;
-  
 }
 
 .reward-section::before {
@@ -47,8 +63,7 @@ code {
   top: 35%;
   transform: translate(-50%, -35%);
   width: 100%;
-  /* way larger than the card */
-  height: 120%;
+  height: 100%;
   border-radius: 50%;
   pointer-events: none;
   z-index: 0;
@@ -65,48 +80,46 @@ code {
 
 /* Smartwatch Image */
 .reward-image {
-  max-width: 260px;
+  max-width: 16.25rem; /* 260px */
   width: 100%;
   height: auto;
-  margin: 20px auto;
+  margin: 1.25rem auto; /* 20px */
   display: block;
 }
 
 /* Won Text */
 .won-text {
-  font-size: 20px;
+  font-size: 1.125rem; /* 18px */
   font-weight: 500;
-  color: #f2f2f2;
-  margin: 0 0 10px;
-  font-size: 18px;
   color: #cccccc;
+  margin: 0 0 0.625rem; /* 10px */
 }
 
 /* Prize Card */
 .prize-card {
   background-color: #2a2a2a;
-  border-radius: 16px;
-  padding: 20px;
-  margin: 10px auto 24px;
+  border-radius: 1rem; /* 16px */
+  padding: 1.25rem; /* 20px */
+  margin: 0.625rem auto 1.5rem; /* 10px auto 24px */
   max-width: 100%;
   color: #fff;
-  box-shadow: 0 0 12px rgba(255, 215, 130, 0.1);
+  box-shadow: 0 0 0.75rem rgba(255, 215, 130, 0.1); /* 12px */
 }
 
 .worth-text {
-  font-size: 16px;
-  margin: 4px 0 12px 0;
+  font-size: 1rem; /* 16px */
+  margin: 0.25rem 0 0.75rem; /* 4px 0 12px */
   font-weight: 600;
 }
 
 .divider {
   border: none;
-  border-top: 1px solid #ffffff;
-  margin: 12px 0;
+  border-top: 0.0625rem solid #ffffff; /* 1px */
+  margin: 0.75rem 0; /* 12px */
 }
 
 .description-text {
-  font-size: 13px;
+  font-size: 0.8125rem; /* 13px */
   color: #bbbbbb;
   line-height: 1.5;
   margin: 0;
@@ -116,10 +129,10 @@ code {
 .tab-buttons {
   display: flex;
   justify-content: center;
-  gap: 0px;
-  margin-bottom: 20px;
-  border: 1px solid #444;
-  border-radius: 8px;
+  gap: 0rem;
+  margin-bottom: 1.25rem; /* 20px */
+  border: 0.0625rem solid #444; /* 1px */
+  border-radius: 0.5rem; /* 8px */
   overflow: hidden;
 }
 
@@ -128,7 +141,7 @@ code {
   background-color: #1e1e1e;
   color: #fff;
   border: none;
-  padding: 10px 20px;
+  padding: 0.625rem 1.25rem; /* 10px 20px */
   font-weight: 500;
   cursor: pointer;
   transition: background-color 0.3s ease;
@@ -146,47 +159,28 @@ code {
 /* Instructions */
 .instructions {
   text-align: left;
-  font-size: 14px;
+  font-size: 0.875rem; /* 14px */
   color: #dddddd;
 }
 
 .instructions ol {
-  padding-left: 20px;
+  padding-left: 1.25rem; /* 20px */
   margin: 0;
 }
 
 /* BetterLuck Next Time */
 .betterLuckNextTimeHeading {
-  font-size: 24px;
+  font-size: 1.5rem; /* 24px */
   line-height: 140%;
   font-weight: 600;
 }
 
-@media screen and (max-width: 500px) {
-  .congrats-text {
-    font-size: 28px;
-  }
-
-  .prize-title {
-    font-size: 18px;
-  }
-
-  .worth-text {
-    font-size: 16px;
-  }
-
-  .reward-box {
-    /* padding: 20px 15px; */
-    width: 350px;
-  }
-}
-
 /* Congrats Text */
 .congrats-text {
-  font-size: 32px;
+  font-size: 2rem; /* 32px */
   font-weight: 600;
   color: #BFA065;
-  margin-bottom: 20px;
+  margin-bottom: 1.25rem; /* 20px */
   line-height: 1.2;
   font-family: Onest;
   background: linear-gradient(135deg, #E6C587 0%, #BFA065 100%);
@@ -196,13 +190,12 @@ code {
 }
 
 .prize-image {
-  width: 200px;
-  margin: 20px 0;
+  width: 12.5rem; /* 200px */
+  margin: 1.25rem 0; /* 20px */
 }
 
-
 .prize-title {
-  font-size: 28px;
+  font-size: 1.75rem; /* 28px */
   font-weight: 700;
   margin: 0;
   color: #ffffff;
@@ -212,8 +205,8 @@ code {
 .btn-group {
   display: flex;
   justify-content: center;
-  gap: 10px;
-  margin-bottom: 20px;
+  gap: 0.625rem; /* 10px */
+  margin-bottom: 1.25rem; /* 20px */
 }
 
 .avail-btn {
@@ -229,40 +222,39 @@ code {
 
 .instructions {
   text-align: left;
-  font-size: 14px;
+  font-size: 0.875rem; /* 14px */
   color: #dddddd;
 }
 
 .instructions ol {
-  padding-left: 20px;
+  padding-left: 1.25rem; /* 20px */
 }
 
-
 .div404 {
-  border: 2px inset #dee2e6;
-  padding: 60px;
-  border-radius: 20px;
+  border: 0.125rem inset #dee2e6; /* 2px */
+  padding: 3.75rem; /* 60px */
+  border-radius: 1.25rem; /* 20px */
   background-color: #eee5ffb0;
-  box-shadow: 0 0 20px 1px rgba(135, 22, 173, 0.5)
+  box-shadow: 0 0 1.25rem 0.0625rem rgba(135, 22, 173, 0.5); /* 20px 1px */
 }
 
 .redemption-code {
   font-weight: 500;
-  font-size: 14px;
+  font-size: 0.875rem; /* 14px */
   font-family: Onest;
 }
 
 .jackpot-wrapper {
-  padding: 20px;
+  padding: 1.25rem; /* 20px */
   width: 100%;
 }
 
 .jackpot-banner {
   display: flex;
-  border-radius: 20px;
+  border-radius: 1.25rem; /* 20px */
   overflow: hidden;
-  min-height: 180px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  min-height: 11.25rem; /* 180px */
+  box-shadow: 0 0.5rem 2rem rgba(0, 0, 0, 0.2); /* 8px 32px */
   position: relative;
 }
 
@@ -271,25 +263,25 @@ code {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 30px;
+  padding: 1.875rem; /* 30px */
   color: white;
   position: relative;
   text-align: left;
 }
 
 .jackpot-subtitle {
-  font-size: 18px;
+  font-size: 1.125rem; /* 18px */
   font-weight: 600;
   opacity: 0.9;
-  margin: 0 0 8px 0;
-  letter-spacing: 0.5px;
+  margin: 0 0 0.5rem; /* 8px */
+  letter-spacing: 0.03125rem; /* 0.5px */
 }
 
 .jackpot-title {
-  font-size: 28px;
+  font-size: 1.75rem; /* 28px */
   font-weight: 700;
   line-height: 1.2;
-  margin: 0 0 20px 0;
+  margin: 0 0 1.25rem; /* 20px */
   color: white;
 }
 
@@ -305,82 +297,82 @@ code {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 20px;
+  padding: 1.25rem; /* 20px */
   position: relative;
 }
 
 .jackpot-image img {
-  max-width: 180px;
-  max-height: 140px;
+  max-width: 11.25rem; /* 180px */
+  max-height: 8.75rem; /* 140px */
   width: auto;
   height: auto;
   object-fit: contain;
-  filter: drop-shadow(0 4px 20px rgba(0, 0, 0, 0.3));
+  filter: drop-shadow(0 0.25rem 1.25rem rgba(0, 0, 0, 0.3)); /* 4px 20px */
 }
 
-/* Responsive Design - Same layout for all devices */
+/* Responsive Design */
 @media (max-width: 768px) {
   .jackpot-wrapper {
-    padding: 15px;
+    padding: 0.9375rem; /* 15px */
   }
 
   .jackpot-banner {
-    min-height: 160px;
+    min-height: 10rem; /* 160px */
   }
 
   .jackpot-text {
-    padding: 25px 20px;
+    padding: 1.5625rem 1.25rem; /* 25px 20px */
   }
 
   .jackpot-subtitle {
-    font-size: 16px;
+    font-size: 1rem; /* 16px */
   }
 
   .jackpot-title {
-    font-size: 24px;
+    font-size: 1.5rem; /* 24px */
   }
 
   .jackpot-image {
-    padding: 15px;
+    padding: 0.9375rem; /* 15px */
   }
 
   .jackpot-image img {
-    max-width: 140px;
-    max-height: 120px;
+    max-width: 8.75rem; /* 140px */
+    max-height: 7.5rem; /* 120px */
   }
 }
 
 @media (max-width: 480px) {
   .jackpot-wrapper {
-    padding: 10px;
+    padding: 0.625rem; /* 10px */
   }
 
   .jackpot-banner {
-    min-height: 140px;
+    min-height: 8.75rem; /* 140px */
   }
 
   .jackpot-text {
-    padding: 20px 15px;
+    padding: 1.25rem 0.9375rem; /* 20px 15px */
   }
 
   .jackpot-subtitle {
-    font-size: 15px;
+    font-size: 0.9375rem; /* 15px */
   }
 
   .jackpot-title {
-    font-size: 20px;
+    font-size: 1.25rem; /* 20px */
   }
 
   .jackpot-result {
-    font-size: 12px !important;
+    font-size: 0.75rem !important; /* 12px */
   }
 
   .jackpot-image {
-    padding: 10px;
+    padding: 0.625rem; /* 10px */
   }
 
   .jackpot-image img {
-    max-width: 120px;
-    max-height: 100px;
+    max-width: 7.5rem; /* 120px */
+    max-height: 6.25rem; /* 100px */
   }
 }

@@ -1,18 +1,43 @@
+/* Root font-size scaling */
+html {
+    font-size: 16px;
+    /* Desktop default (>=769px) */
+}
+
+@media (max-width: 768px) {
+    html {
+        font-size: 12px;
+        /* Tablet */
+    }
+}
+
+@media (max-width: 480px) {
+    html {
+        font-size: 10px;
+        /* Mobile */
+    }
+}
+
 /* Welcome Back Header Styles */
 .welcome-back-header {
-    margin: 4px;
-    padding: 20px 0;
+    margin: 0.25rem;
+    /* 4px */
+    padding: 1.25rem 0;
+    /* 20px */
     display: flex;
     align-items: center;
     font-family: 'Manrope';
 }
 
 .profile-image {
-    width: 32px;
-    height: 32px;
+    width: 2rem;
+    /* 32px */
+    height: 2rem;
+    /* 32px */
     border-radius: 50%;
     object-fit: cover;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.2);
+    /* 2px 8px */
 }
 
 .welcome-text {
@@ -21,39 +46,48 @@
 }
 
 .welcome-back {
-    font-size: 10px;
+    font-size: 0.625rem;
+    /* 10px */
     font-weight: 400;
     opacity: 0.9;
 }
 
 .user-name {
-    font-size:  14px;
+    font-size: 0.875rem;
+    /* 14px */
     font-weight: 600;
-    line-height: 18px;
+    line-height: 1.125rem;
+    /* 18px */
     margin: 0;
 }
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
     .welcome-back-header {
-        padding: 12px 0;
+        padding: 0.75rem 0;
+        /* 12px */
     }
 
     .profile-image {
-        width: 32px;
-        height: 32px;
+        width: 2rem;
+        /* 32px */
+        height: 2rem;
+        /* 32px */
     }
 
     .welcome-back {
-        font-size: 10px;
+        font-size: 0.625rem;
+        /* 10px */
     }
 
     .user-name {
-        font-size: 14px;
+        font-size: 0.875rem;
+        /* 14px */
     }
 }
 
 .profile-section {
     display: flex;
-    gap: 8px;
+    gap: 0.5rem;
+    /* 8px */
 }
