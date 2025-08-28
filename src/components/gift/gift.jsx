@@ -100,7 +100,7 @@ const GiftComponent = () => {
 
   return (
     <Container fluid className="reward-container">
-      <div className="">
+      <div className="reward-box">
         <UserHeaderComponent customerName={gift.customerName} />
 
         <ImageSectionComponent
