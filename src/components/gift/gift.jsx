@@ -99,7 +99,7 @@ const GiftComponent = () => {
   if (loading) return <Loader />;
 
   return (
-    <Container fluid className="reward-container">
+    <div className="reward-container">
       <div className="reward-box">
         <UserHeaderComponent customerName={gift.customerName} />
 
@@ -141,7 +141,7 @@ const GiftComponent = () => {
 
         <GiftAvailAndTermsComponent />
       </div>
-    </Container>
+    </div>
   );
 };
 
