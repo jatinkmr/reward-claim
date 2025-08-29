@@ -1,5 +1,4 @@
 import React from "react";
-import { Container, Col } from "reactstrap";
 import "./userHeader.css";
 
 const UserHeaderComponent = ({ customerName }) => {
