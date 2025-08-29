@@ -55,6 +55,9 @@ code {
   margin: 1.2rem;
   text-align: center;
   overflow: visible; 
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
 
 .reward-section::before {
@@ -107,9 +110,10 @@ code {
   border-radius: 1rem; /* 16px */
   padding: 1.6rem; /* 20px */
   margin: 0.625rem auto 1.6rem; /* 10px auto 24px */
-  max-width: 100%;
   color: #fff;
   box-shadow: 0 0 0.75rem rgba(255, 215, 130, 0.1); /* 12px */
+  width: 100%;
+  max-width: 38rem;
 }
 
 .worth-text {
@@ -135,7 +139,7 @@ code {
   display: flex;
   justify-content: center;
   gap: 0;
-  margin-bottom:2.4rem;
+  margin:0 auto 2.4rem;
   border: 1px solid #E4E7EC1A; /* 1px */
   border-radius: 1rem;
   overflow: hidden;
@@ -265,7 +269,9 @@ code {
   height: 11.7rem;
   box-shadow: 0 0.5rem 2rem rgba(0, 0, 0, 0.2);
   position: relative;
-   margin-bottom: 4rem;
+   margin: 0 auto 4rem;
+   width: 100%;
+  max-width: 38rem;
 }
 
 .jackpot-wrapper{
@@ -331,3 +337,29 @@ code {
   filter: drop-shadow(0 0.25rem 1.25rem rgba(0, 0, 0, 0.3)); /* 4px 20px */
 }
 
+.jackpot-container {
+  display: flex;
+  justify-items: center;
+  width: 100%;
+}
+.success-jackpot-img {
+  width: 9rem !important;
+  height: 8.8rem !important;
+}
+
+.congrats-text-jackpot {
+  font-size: 2.8rem;
+  font-family: 'Onest';
+  padding: 0;
+  font-weight: 600;
+}
+
+.jackpot-heading {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items:center;
+  gap: 0;                  
+  padding: 0;  
+  max-width: 30rem;
+}

@@ -1,6 +1,7 @@
 import { Col, Row } from "reactstrap";
 import { baseUrl } from "../../services";
 import "./imageSection.css";
+import successGif from "./../../assets/SuccessGif.gif";
 
 const ImageSectionComponent = ({
   imageUrl,
@@ -34,19 +35,18 @@ const ImageSectionComponent = ({
         </>
       ) : isJackpot ? (
         <>
-          <Row>
-            <Col xs={3}>
-              <img src="/Success.svg" alt="jackpot-image" />
-            </Col>
-            <Col>
-              <h1 className="congrats-text">{headingText}</h1>
-            </Col>
-          </Row>
-          <Row>
-            <Col className="winner-section">
-              Winners to be declared on {formatDate(endDate)}
-            </Col>
-          </Row>
+          <div className="jackpot-heading">
+            <img
+              src={successGif}
+              alt="success-jackpot-img"
+              className="success-jackpot-img"
+            />
+            <h1 className="congrats-text-jackpot">{headingText}</h1>
+          </div>
+
+          <div className="winner-section">
+            Winners to be declared on {formatDate(endDate)}
+          </div>
         </>
       ) : (
         <>
