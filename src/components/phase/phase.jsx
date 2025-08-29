@@ -10,6 +10,7 @@ const PhaseEnrollmentComponent = () => {
     const [phase, setPhase] = useState({});
     const [prizeImgUrl, setPrizeImgUrl] = useState('');
     const [enrollmentGift, setEnrollmentGift] = useState({});
+    const [isEnrollmentGiftAvailable, setIsEnrollmentGiftAvailable] = useState(false);
     const navigate = useNavigate();
     const [isBetterLuck, setIsBetterLuck] = useState(false);
 
@@ -43,11 +44,12 @@ const PhaseEnrollmentComponent = () => {
                         endDate: response?.data?.data?.endDate,
                         prizes: response?.data?.data?.prizes?.length ? response?.data?.data?.prizes : [],
                         prizeInfo: response?.data?.data?.prizeInfo || 'N/A',
-                        isWon: (response?.data?.data?.enrollmentGift?.prize?.documentId !== ""),
+                        isWon: (response?.data?.data?.enrollmentGift && response?.data?.data?.enrollmentGift?.prize?.documentId !== ""),
                         redemptionCode: response?.data?.data?.enrollmentGift?.redemptionCode || 'N/A'
                     })
                     setEnrollmentGift(response?.data?.data?.enrollmentGift)
                     setIsBetterLuck(!!response?.data?.data?.enrollmentGift?.prize?.product?.isBetterLuck)
+                    setIsEnrollmentGiftAvailable(!!response?.data?.data?.enrollmentGift?.gift)
                 }
             } catch (error) {
                 navigate("/error", {
@@ -83,7 +85,7 @@ const PhaseEnrollmentComponent = () => {
 
                     <DescriptionComponent isList={true} title="Prizes" prizeList={phase.prizes} />
 
-                    {phase?.prizes?.length ? <PrizeGiftComponent contestId={contestId} title="Enrollment Gift" textBackgroundColor="#D1AA61" imageBackgroundColor="#816632" isEnrollment={true} enrollmentGift={enrollmentGift} /> : null}
+                    {(phase?.prizes?.length && isEnrollmentGiftAvailable) ? <PrizeGiftComponent contestId={contestId} title="Enrollment Gift" textBackgroundColor="#D1AA61" imageBackgroundColor="#816632" isEnrollment={true} enrollmentGift={enrollmentGift} /> : null}
 
                     <PrizeTermsAndConditionsComponent endDate={phase.endDate} />
                 </div>

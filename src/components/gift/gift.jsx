@@ -55,6 +55,7 @@ const GiftComponent = () => {
           phaseId: response?.data?.data?.phase?.documentId,
           customerName: response?.data?.data?.customerInfo?.name || "N/A",
           giftClaimedAt: response?.data?.data?.giftClaimedAt || "N/A",
+          isPrizeWon: !!(response?.data?.data?.prize?.product?.id)
         });
       }
     } catch (error) {
@@ -136,6 +137,7 @@ const GiftComponent = () => {
             textBackgroundColor="#4F46E5"
             imageBackgroundColor="#27218D"
             phaseId={gift.phaseId}
+            isPrizeWon={gift?.isPrizeWon}
           />
         ) : null}
 

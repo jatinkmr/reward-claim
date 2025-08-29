@@ -12,6 +12,7 @@ const PrizeGiftComponent = ({
   phaseId,
   isEnrollment = false,
   enrollmentGift,
+  isPrizeWon = false
 }) => {
   const navigate = useNavigate();
 
@@ -38,7 +39,7 @@ const PrizeGiftComponent = ({
             <h2 className="jackpot-title">
               {isEnrollment
                 ? enrollmentGift?.gift?.product?.title || "N/A"
-                : `Your chance to win`}
+                : (isPrizeWon ? 'You won' : `Your chance to win`)}
               <br />
               {isEnrollment ? null : prizeInfo?.product?.title || "N/A"}
             </h2>
