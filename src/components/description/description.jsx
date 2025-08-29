@@ -19,11 +19,6 @@ const DescriptionComponent = ({ title, worth, description, isList = false, prize
                         <div className="prize-info">
                             {/* Image */}
                             {prize.product?.image[0]?.url && (
-                                // <img
-                                //     src={prize.product.image.url}
-                                //     alt={prize.product.image.name || prize.product.title}
-                                //     className="prize-image"
-                                // />
                                 <img className="prize-image" alt={'prizeImg'+index} src={prize?.product?.image[0]?.url?.includes("media.strapiapp.com")
                                     ? prize?.product?.image[0]?.url
                                     : (prize?.product?.image[0]?.url

@@ -379,3 +379,8 @@ code {
 .prize-info {
   display: flex;
 }
+
+.text-start {
+  font-size: 1.6rem;
+  font-weight: 600;
+}
