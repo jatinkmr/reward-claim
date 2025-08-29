@@ -55,7 +55,7 @@ const GiftComponent = () => {
           phaseId: response?.data?.data?.phase?.documentId,
           customerName: response?.data?.data?.customerInfo?.name || "N/A",
           giftClaimedAt: response?.data?.data?.giftClaimedAt || "N/A",
-          isPrizeWon: !!(response?.data?.data?.prize?.product?.id)
+          isPrizeWon: !!(response?.data?.data?.prize?.product?.id && !response?.data?.data?.prize?.product?.isBetterLuck)
         });
       }
     } catch (error) {

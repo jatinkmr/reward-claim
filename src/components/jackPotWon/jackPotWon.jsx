@@ -15,7 +15,7 @@ const JackPotWon = ({ contestId, phaseInfo, enrollmentGiftPrize }) => {
                     <DescriptionComponent title={enrollmentGiftPrize?.prize?.product?.title || phaseInfo?.prizeInfo?.product?.title} worth={enrollmentGiftPrize?.prize?.product?.worth || phaseInfo?.prizeInfo?.product?.worth} description={enrollmentGiftPrize?.prize?.product?.description || phaseInfo?.prizeInfo?.product?.description} />
 
                     {enrollmentGiftPrize?.redemptionCode ? (
-                        (enrollmentGiftPrize?.giftClaimedAt === 'N/A') ? (
+                        (enrollmentGiftPrize?.giftClaimedAt === 'N/A' || enrollmentGiftPrize?.giftClaimedAt === '') ? (
                             <p className="redemption-code">
                                 Redemption Code: {enrollmentGiftPrize.redemptionCode}
                             </p>

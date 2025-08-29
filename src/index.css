@@ -239,7 +239,7 @@ code {
 
 .instructions {
   text-align: left;
-  font-size: 0.875rem; /* 14px */
+  font-size: 1.4rem; /* 14px */
   color: #dddddd;
 }
 
@@ -374,4 +374,8 @@ code {
 
 .reward-section.betterLuckNextTimeBg::before {
   content: none !important;
+}
+
+.prize-info {
+  display: flex;
 }

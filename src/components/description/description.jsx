@@ -1,3 +1,5 @@
+import { baseUrl } from "../../services";
+
 const DescriptionComponent = ({ title, worth, description, isList = false, prizeList }) => {
 
     // Function to render the prize list
@@ -16,12 +18,17 @@ const DescriptionComponent = ({ title, worth, description, isList = false, prize
                     <div key={index} className="prize-item">
                         <div className="prize-info">
                             {/* Image */}
-                            {prize.product?.image?.url && (
-                                <img
-                                    src={prize.product.image.url}
-                                    alt={prize.product.image.name || prize.product.title}
-                                    className="prize-image"
-                                />
+                            {prize.product?.image[0]?.url && (
+                                // <img
+                                //     src={prize.product.image.url}
+                                //     alt={prize.product.image.name || prize.product.title}
+                                //     className="prize-image"
+                                // />
+                                <img className="prize-image" alt={'prizeImg'+index} src={prize?.product?.image[0]?.url?.includes("media.strapiapp.com")
+                                    ? prize?.product?.image[0]?.url
+                                    : (prize?.product?.image[0]?.url
+                                        ? `${baseUrl}${prize?.product?.image[0]?.url}`
+                                        : "") || ""} />
                             )}
 
                             <div className="prize-details">
