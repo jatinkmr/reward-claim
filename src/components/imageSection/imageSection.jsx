@@ -10,6 +10,7 @@ const ImageSectionComponent = ({
   isJackpot = false,
   endDate,
   isBetterLuck = false,
+  customClassName = "",
 }) => {
   const formatDate = (dateInput) => {
     const date = new Date(dateInput);
@@ -22,12 +23,12 @@ const ImageSectionComponent = ({
   };
 
   return (
-    <div className="reward-section">
+    <div className={`reward-section ${customClassName}`}>
       {isBetterLuck ? (
         <>
           <Row>
             <Col>
-              <p className="betterLuckNextTimeHeading">
+              <p className="better-luck-title">
                 Sorry, No win today but <br /> better luck next time!
               </p>
             </Col>
