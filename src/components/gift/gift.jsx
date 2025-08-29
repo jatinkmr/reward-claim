@@ -1,7 +1,6 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { allocatingGiftService } from "../../services";
-import { Container } from "reactstrap";
 import {
   GiftAvailAndTermsComponent,
   DescriptionComponent,
