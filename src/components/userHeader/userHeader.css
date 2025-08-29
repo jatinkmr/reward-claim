@@ -20,10 +20,7 @@ html {
 
 /* Welcome Back Header Styles */
 .welcome-back-header {
-    margin: 0.25rem;
-    /* 4px */
     padding: 1.1rem 0.4rem 2.1rem;
-    /* 20px */
     display: flex;
     align-items: center;
     font-family: 'Manrope';

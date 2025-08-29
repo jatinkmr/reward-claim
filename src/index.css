@@ -45,24 +45,16 @@ code {
 }
 
 .reward-box {
-  /* background: linear-gradient(145deg, #1e1e1e, #292929); */
-  /* border-radius: 24px; */
-  padding: 0 2rem;
-  /* width: 620px; */
+  padding: 0 2rem 2rem;
   text-align: center;
-  /* box-shadow: 0 0 25px rgba(255, 255, 255, 0.05); */
 }
 
 /* Highlight Section */
 .reward-section {
   background: transparent;
-  /* position: relative; */
-  /* padding: 1.2rem; 10px 20px 20px */
   margin: 1.2rem;
   text-align: center;
-  /* border-radius: 1.25rem; 20px */
-  overflow: visible;
-  /* background-color: pink; */  
+  overflow: visible; 
 }
 
 .reward-section::before {
@@ -130,22 +122,26 @@ code {
 .tab-buttons {
   display: flex;
   justify-content: center;
-  gap: 0rem;
-  margin-bottom: 1.25rem; /* 20px */
-  border: 0.0625rem solid #444; /* 1px */
-  border-radius: 0.5rem; /* 8px */
+  gap: 0;
+  margin-bottom:2.4rem;
+  border: 1px solid #E4E7EC1A; /* 1px */
+  border-radius: 1rem;
   overflow: hidden;
+  height: 4.4rem;
+  background-color:#FFFFFF1A;
+  padding: 0.4rem;
 }
 
 .tab-btn {
   flex: 1;
-  background-color: #1e1e1e;
   color: #fff;
   border: none;
+   background: transparent;  
   padding: 0.625rem 1.25rem; /* 10px 20px */
-  font-weight: 500;
+  font-weight: 600;
   cursor: pointer;
   transition: background-color 0.3s ease;
+    font-size: 1.4rem;
 }
 
 .tab-btn:hover {
@@ -153,15 +149,18 @@ code {
 }
 
 .tab-btn.active {
-  background-color: #FFD580;
+  background-color: #CEAA67;
   color: #000;
+  border-radius: 6px;
 }
 
 /* Instructions */
 .instructions {
   text-align: left;
-  font-size: 0.875rem; /* 14px */
-  color: #dddddd;
+  font-size: 1.4rem;
+  color: #FFFFFFBF;
+  font-family: 'Onest';
+  font-weight: 400;
 }
 
 .instructions ol {
